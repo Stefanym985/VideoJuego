@@ -14,6 +14,6 @@ public class App {
 
         scheduler.scheduleAtFixedRate(() -> p1.vida(), 0, 3, TimeUnit.MINUTES);
 
-        System.out.println( "Tienes que conseguir alimentos... El tiempo corre");
+        System.out.println( "Tienes que conseguir alimentos... El tiempo corre!!");
     }
 }

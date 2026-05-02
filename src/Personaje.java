@@ -6,12 +6,18 @@ public class Personaje {
     protected String ventaja;
     protected String desventaja;
 
+    protected Inventario inventario;
+
     public Personaje (int nivelHambre, int nivelSed, int vida, String ventaja, String desventaja){
         this.nivelHambre = nivelHambre;
         this.nivelSed = nivelSed;
         this.vida = vida;
         this.ventaja = ventaja;
         this.desventaja = desventaja;
+        this.inventario = new Inventario();
+    }
+    public Inventario getInventario(){
+        return inventario;
     }
 
     public int getNivelHambre() {
@@ -35,6 +41,9 @@ public class Personaje {
     }
 
     // SETTERS 
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
     public void setNivelHambre(int nivelHambre) {
         this.nivelHambre = nivelHambre;
     }
@@ -84,7 +93,7 @@ public class Personaje {
     }
 
     // METODO DE DESGASTE
-    public void desgaste() {// Cada vez que se ejecuta este metodo le va quitando 3 puntos en hambre y sed a los personajes por medio del cronometro.
+    public void desgaste() {// Cada vez que se ejecuta este metodo le va quitando 3 puntos en hambre y sed a los personajes por medio del cronometro cada 3 minutos 
         this.nivelHambre -= 3; 
         this.nivelSed -= 3;
 
