@@ -6,8 +6,8 @@ public class Mara extends Personaje {
 }
 
 public void vida(){
-    if  (this.nivelHambre = 0 || this.nivelSed = 0) {
-        this.vida - = 4;
+    if  (this.nivelHambre == 0 || this.nivelSed == 0) {
+        this.vida -= 4;
     }
  }
 

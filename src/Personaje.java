@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Personaje {
 
     protected int nivelHambre;
@@ -5,15 +7,18 @@ public class Personaje {
     protected int vida; 
     protected String ventaja;
     protected String desventaja;
+    protected String nombre;
+    private Inventario inventario;
 
-    protected Inventario inventario;
+    
 
-    public Personaje (int nivelHambre, int nivelSed, int vida, String ventaja, String desventaja){
+    public Personaje (int nivelHambre, int nivelSed, int vida, String ventaja, String desventaja, String nombre){
         this.nivelHambre = nivelHambre;
         this.nivelSed = nivelSed;
         this.vida = vida;
         this.ventaja = ventaja;
         this.desventaja = desventaja;
+        this.nombre = nombre;
         this.inventario = new Inventario();
     }
     public Inventario getInventario(){
@@ -38,6 +43,9 @@ public class Personaje {
 
     public String getDesventaja() {
         return desventaja;
+    }
+    public String getNombre() {
+        return nombre;
     }
 
     // SETTERS 
@@ -67,29 +75,17 @@ public class Personaje {
     public void setDesventaja(String desventaja) {
         this.desventaja = desventaja;
     }
-
-    // METODOS DE LOS PERSONAJES (COMER, BEBER, VIDA)
-
-    public void comer() {
-
-        this.nivelHambre += 2;
-
-        if (this.nivelHambre > 10) {
-            this.nivelHambre = 10;
-        } 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void beber() {
-        this.nivelSed += 2;
-        if (this.nivelSed > 10) {
-            this.nivelSed = 10;
-        }
-    }
+//METODO DE VIDA Y DESGASTE
     
     public void vida() {
-        if (this.nivelHambre = 0 || this.nivelSed = 0) {
+        if (this.nivelHambre == 0 || this.nivelSed == 0) {
             this.vida -= 2;
         } 
+        System.out.println("se esta ejecutando el metodo de desgaste");
     }
 
     // METODO DE DESGASTE
@@ -97,13 +93,32 @@ public class Personaje {
         this.nivelHambre -= 3; 
         this.nivelSed -= 3;
 
-        if (this.nivelHambre < 0) this.nivelHambre = 0;
-        if (this.nivelSed < 0) this.nivelSed = 0;
+        if (this.nivelHambre <= 0) this.nivelHambre = 0;
+        if (this.nivelSed <= 0) this.nivelSed = 0;
 
-        if (this.nivelHambre <= 0 || this.nivelSed <= 0) {
+        if (this.nivelHambre <= 0 || this.nivelSed <= 0) {  // Si nivel de hambre o sed llegan a cero la vida decrece en 2 puntos
         this.vida -= 2;
     }
     }
+
+    // METODO DE RECOGER ITEMS
+    public void recogerItems(ArrayList<Item> items) {
+        
+        for (Item item : items){
+            inventario.agregarItem(item);
+    }
     
-    
+}
+// METODO DE MOSTRAR INVENTARIO
+    public void mostrarInventario() {
+    System.out.println("Inventario de " + nombre + ":");
+
+    for(Item item : inventario.getItems()) {
+
+        System.out.println("- " + item.getNombre());
+    }
+}
+
+
+
 }

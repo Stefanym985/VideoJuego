@@ -7,5 +7,6 @@ public class Material extends Item {
     public void usar(Personaje personaje) {
         System.out.println(" Debes combinar con otros materiales para crear objetos útiles.");
     }
+   
 
 }

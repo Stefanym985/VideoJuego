@@ -7,8 +7,8 @@ public class Ben extends Personaje {
 // METODOS DE VIDA
  @Override
  public void vida(){
-    if  (this.nivelHambre = 0 || this.nivelSed = 0) {
-        this.vida - = 3;
+    if  (this.nivelHambre == 0 || this.nivelSed == 0) {
+        this.vida -= 3;
     }
  } 
 

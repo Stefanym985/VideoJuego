@@ -1,14 +1,15 @@
 public abstract class Item {
+
+   
     protected String nombre;
     protected String tipo; //  material, comida 
-    protected int cantidad;
+    protected int cantidad;   
 
     public Item(String nombre, String tipo, int cantidad) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.cantidad = cantidad;
     }
-
     public String getNombre() {
         return nombre;
     }
@@ -26,8 +27,8 @@ public abstract class Item {
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }   
-    
+    } 
+   
     // METODO DE AGREGAR Y DISMINUIR CANTIDAD
 
     public void agregarCantidad (int cantidad) {
@@ -41,9 +42,13 @@ public abstract class Item {
     }
 
     // METODO DE USAR ITEMS
-    public abstract void usar(Personaje personaje) {
+    public void usar(Personaje personaje){
+
+    }
+
+
+
     
+   
 
-
-}
 }
