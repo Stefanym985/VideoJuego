@@ -63,6 +63,8 @@ public class Personaje {
     public void setVida(int vida) {
         if (vida < 0) {
             this.vida = 0;
+        } else if (vida > 10) {
+            this.vida = 10;
         } else {
             this.vida = vida;
         }
@@ -119,6 +121,59 @@ public class Personaje {
     }
 }
 
+ // METODO DE CONSTRUIR REFUGIO (BEN)
 
+ public void construirRefugio() {
+
+ if (inventario.tieneItem("fuselaje", 5) &&
+        inventario.tieneItem("Hojas", 15) &&
+        inventario.tieneItem("fundas de asiento", 10) &&
+        inventario.tieneItem("Cables", 6)) {
+
+        inventario.consumirItem("fuselaje", 5);
+        inventario.consumirItem("Hojas", 15);
+        inventario.consumirItem("fundas de asiento", 10);
+        inventario.consumirItem("Cables", 6);
+
+        System.out.println(nombre + " ha construido un refugio.");
+
+    } else {
+        System.out.println("No tienes suficientes materiales para construir el refugio.");
+    }
+
+}
+// METODOS DE RECOGER COMIDA (MARA)
+public void recogerComida(ArrayList<Item> itemsEncontrados){
+recogerItems(itemsEncontrados);
+System.out.println(nombre + " ha explorado la isla y encontro nuevos alimentos");
+
+}
+// METODOS DE CURAR HERIDAS (WILLY)
+public void curarHeridas(Personaje personaje) {
+
+    if (inventario.tieneItem("Alcohol", 3) &&
+        inventario.tieneItem("Vendas", 10) &&
+        inventario.tieneItem("Suero Fisiologico", 1) &&
+        inventario.tieneItem("Agujas", 2) &&
+        inventario.tieneItem("Analgesicos", 3)) {
+
+        inventario.consumirItem("Alcohol", 3);
+        inventario.consumirItem("Vendas", 10);
+        inventario.consumirItem("Suero Fisiologico", 1);
+        inventario.consumirItem("Agujas", 2);
+        inventario.consumirItem("Analgesicos", 3);
+
+        personaje.setVida(getVida() + 5); // Aumenta la vida del personaje en 5 puntos al curar heridas
+
+        System.out.println(nombre + " ha curado las heridas de: " + personaje.getNombre());
+
+    } else {
+        System.out.println("No tienes suficientes materiales para curar tus heridas.");
+    }
+
+
+
+
+}
 
 }

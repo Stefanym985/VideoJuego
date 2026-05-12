@@ -40,26 +40,26 @@ public class App {
         System.out.println( "Tienes que conseguir alimentos... El tiempo corre!!");
 
         try {
-        Thread.sleep(20000); // 20 segundos
+        Thread.sleep(5000); // 5 segundos
     } catch (InterruptedException e) {
          e.printStackTrace();
     }
 
     // CREAR OBJETOS DE LOS ITEMS
-    Comida Coco = new Comida("Coco", 5, 0, 5);
-    Comida Mango = new Comida ("Mango", 3, 4, 0);
-    Comida Pescado = new Comida ("Pescado", 2, 6, 0);
-    Comida Yuca = new Comida ("Yuca", 4, 4, 0);
+    Comida Coco = new Comida("Coco", 1, 0, 5);
+    Comida Mango = new Comida ("Mango", 1, 4, 0);
+    Comida Pescado = new Comida ("Pescado", 1, 6, 0);
+    Comida Yuca = new Comida ("Yuca", 1, 4, 0);
     Comida Higo = new Comida ("Higo", 1, 2, 0);
 
-    Material fuselaje = new Material ("fuselaje", 5);
-    Material Hojas = new Material ("Hojas", 15);
-    Material Fundas_Asiento = new Material ("fundas de asiento", 10);
-    Material Cables = new Material ("Cables", 6);
+    Material fuselaje = new Material ("fuselaje", 1);
+    Material Hojas = new Material ("Hojas", 1);
+    Material Fundas_Asiento = new Material ("fundas de asiento", 1);
+    Material Cables = new Material ("Cables", 1);
 
-    Material Resina_Arbol = new Material ("Resina de arbol", 4);
-    Material Espuma_Asientos = new Material ("Espuma de asientos", 3);
-    Material Cristales = new Material ("Cristales", 3);
+    Material Resina_Arbol = new Material ("Resina de arbol", 1);
+    Material Espuma_Asientos = new Material ("Espuma de asientos", 1);
+    Material Cristales = new Material ("Cristales", 1);
 
     Material Alcohol = new Material ("Alcohol", 3);
     Material Vendas = new Material ("Vendas", 10);
@@ -78,6 +78,7 @@ public class App {
     itemsBen.add(fuselaje);
     itemsBen.add(Cables);
     itemsBen.add(Hojas);
+    itemsBen.add(Fundas_Asiento);
 
      ArrayList<Item> itemsWilly = new ArrayList<>();
      itemsWilly.add(Alcohol);
@@ -95,6 +96,16 @@ public class App {
     ben.mostrarInventario();
     willy.mostrarInventario();
     
+    // METODO DE CONSTRUIR REFUGIO
+    ben.construirRefugio();
+
+    // METODO DE RECOGER COMIDA
+    mara.recogerComida(itemsMara);
+
+    // METODO DE CURAR HERIDAS
+    willy.curarHeridas(ben);
+    willy.curarHeridas(mara);
+    willy.curarHeridas(willy);
 
      
 
